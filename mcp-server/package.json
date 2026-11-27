@@ -1,0 +1,33 @@
+{
+  "name": "pixera-mcp",
+  "version": "0.1.0",
+  "description": "Local MCP server to control AV Stumpfl Pixera via its JSON-RPC API",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-api.mjs",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check": "tsx scripts/check-coverage.ts",
+    "mock": "tsx test/mock-pixera.ts",
+    "smoke": "tsx scripts/smoke.ts",
+    "test": "npm run typecheck && npm run check && npm run smoke"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.7",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  },
+  "bin": {
+    "pixera-mcp": "dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
